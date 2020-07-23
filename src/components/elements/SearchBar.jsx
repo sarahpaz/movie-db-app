@@ -4,14 +4,14 @@ import PropTypes from "prop-types";
 
 import {
   StyledSearchBar,
-  StyledSearchBarContent
+  StyledSearchBarContent,
 } from "../styles/StyledSearchBar";
 
 const SearchBar = ({ callback }) => {
   const [state, setState] = useState("");
   const timeOut = useRef(null);
 
-  const doSearch = e => {
+  const doSearch = (e) => {
     const value = e.target.value;
 
     clearTimeout(timeOut.current);
@@ -28,7 +28,7 @@ const SearchBar = ({ callback }) => {
         <FontAwesome className="fa-search" name="search" size="2x" />
         <input
           type="text"
-          placeholder="Search Movie"
+          placeholder="Search Movie Title"
           onChange={doSearch}
           value={state}
         ></input>
@@ -38,7 +38,7 @@ const SearchBar = ({ callback }) => {
 };
 
 SearchBar.propTypes = {
-  callback: PropTypes.func
+  callback: PropTypes.func,
 };
 
 export default SearchBar;
